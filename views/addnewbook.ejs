@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<%- include('./partials/header') %>
+
+<body>
+   
+    <%- include('./partials/nav') %>
+    <div class="form">
+        <h3>
+            Micro-Finance Programme
+        </h3>
+
+        <form action="/addbook" method="POST">
+            
+            <label for= "title"></label>
+            <input  type="text" name="title" placeholder="Title"  id="title" required><br><br>
+       
+            <label for= "author"></label>
+            <input  type="text" name="author" placeholder="Author"  id="author" required><br><br>
+
+            <label for= "Pages"></label>
+            <input  type="number" name="pages" placeholder="Pages"  id="pages" required><br><br>
+
+            <label for= "ratings"></label>
+            <input  type="number" name="ratings" placeholder="Ratings"  id="ratings" required><br><br>
+
+            
+            <label for= "genres"></label>
+            <input  type="text" name="genre" placeholder="Genres"  id="genres" required><br><br>
+        
+            <label for= "reviews"></label>
+            <input  type="text" name="reviews" placeholder="reviews"  id="reviews" required><br><br>
+       
+       
+          <input type= "submit" value= "SUBMIT">
+
+       </form>
+    </div>
+   
+
+
+
+    
+
+</body>

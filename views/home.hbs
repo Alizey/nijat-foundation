@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+    <html>
+         {{>header}}
+  
+
+
+
+<body>
+   
+    <!--<%- include('./partials/nav') %>-->
+    {{>nav}}
+    <div class="absolute_container">
+        <img class= "flower_image" src="/images/help_1.jpeg" >
+        <div class="text_absolute"> 
+            <h1>Nijat Foundation</h1>
+            <h3>
+                A waking dream
+            </h3>
+
+            <br>
+            <button class="button"><a href="/filloutform">Apply for loan</a></button>
+            
+           
+           
+        </div>
+
+    </div>
+    
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+
+   <script>
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.to('.flower_image',{
+               width:'90%',
+               duration:0.5,
+               ScrollTrigger:{
+                Trigger:'.flower_image',
+                start:'top 5%',
+                end:"top 5%", 
+                
+                markers:{
+                  startColor:"white",
+                    endColor:"white",
+                    fontSize:"2rem"
+                }
+              
+               }
+            });
+            
+            gsap.to('.text_absolute' , {
+             opacity:1,
+             scale:1.2,
+              //y:-50,
+              duration:2,
+              ScrollTrigger:{
+                Trigger:'.text_absolute',
+                start:'top 5%',
+                end:"top 5%", 
+              
+
+             /* markers:{
+                  startColor:"purple",
+                    endColor:"fushsia",
+                    fontSize:"2rem"
+                }*/
+            }
+          });
+
+        /*  ScrollTrigger.create({
+            markers:true,
+            trigger:'.head-1',
+            start:'top 25%',
+            toggleClass:{ targets : 'ul' , className:'white'},
+             onUpdate:(self)=>console.log(self)
+            // onEnter:()=>console.log('Enter'),
+            // onLeave: ()=>console.log('Leave'),
+            // onEnterBack:()=>console.log('Enter Back'),
+            // onLeaveBack:()=>console.log('Leave Back')
+          })*/
+   
+   </script>
+
+</body>
+
+</html>

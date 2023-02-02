@@ -1,0 +1,39 @@
+//importing the mongodb drive to interact with mongodb 
+//we require MongoClient object to make connection with db 
+const { MongoClient } = require ('mongodb');
+
+let dbConnection
+
+//exporting the  modules
+//taking 2 functions 
+//connectToDb to make the connection with db
+//getDb to retrieve the  db connection once its made
+module.exports = {
+    
+    // connectToDb will take cb as callback function which will called after connection is made ie this will be passed
+    //as an argument in app.js
+    connectToDb : (cb)=>{   
+       
+        //connection to localhost  
+        MongoClient.connect('mongodb://127.0.0.1:27017/bookStore')
+        
+        //firing a promise function after connection is made whuch takes client object as a parameter
+        //client object has a function db which will return the connection 
+        .then((client) => {
+            dbConnection = client.db()  // the connection is stored in variable dbConnection 
+            return cb( )
+        })
+
+        //catch function incase of error the call back function passed as argument is err function
+        .catch((err) =>{
+            console.log(err)
+            return cb(err)
+        })
+    } ,
+   
+   
+   
+    getDb : () =>{
+        dbConnection   // retrieve the connection 
+    }
+}

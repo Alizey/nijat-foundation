@@ -1,0 +1,247 @@
+@font-face {
+  font-family: Binance Plex;
+  src: url('/public/BinancePlex-Regular.ttf');
+}
+
+*{
+  font-family:Binance PLEX;
+  margin:0;
+  padding:0;
+}
+
+:root{
+  --color-green:#1d6b3a;  
+  --color-green-shade:#04aa6d;
+  --color-black:black;
+}
+
+
+.logo{
+  display: none;
+  color: white;
+  
+}
+
+
+/*menu bar*/
+.nav-bar{
+    position: fixed;    /*to keep the menu bar at the top even if scrolling*/
+    z-index: 999;          /*so it doesnt hide under anything else*/
+    top:0;
+    width: 100%;
+    display:flex;          
+    justify-content: space-around;    
+    align-items: center;
+    min-height: 8vh;
+    background-color: var(--color-green);
+     }
+
+/*The links*/
+.nav-links{
+   display: flex;
+   justify-content: space-around;
+   width:  80%;
+ }
+
+.nav-links li{
+  list-style: none;
+    }
+
+.nav-links a{
+    text-decoration: none;
+    color:white;
+    letter-spacing: 2px;
+    font-weight: bold;
+    }
+
+
+.menu-icon div{
+   width:15px;
+   height:4px;                          /*height of each line*/
+   background-color:white;
+   margin:3px;
+   padding-right: 12px;
+   transition: all 0.3s ease;           /*transition from menu icon to close takes 0.3s*/
+  }
+
+
+/*menu icon is visible only when screen is smaller thn 768px otherwise hidden*/
+.menu-icon{
+display: none;
+}
+
+
+/*animation*/
+@keyframes navLinkFade {
+/*from disappearing */
+from{
+opacity:0;
+transform:translate(50px);
+}
+/*to appearing*/
+to{
+opacity:1;
+transform:translate(0px);
+}
+}
+
+/*to toggle between menu icon and close*/
+.toggle .line1{
+transform: rotate(-45deg) translate(-5px, 3px);
+}
+.toggle .line2{
+opacity: 0;
+}
+.toggle .line3{
+transform: rotate(+45deg) translate(-5px, -3px);
+}
+
+h1{
+  font-size: clamp(1em,4vw , 8em);
+  color: var(--color-black);
+}
+
+h3{
+  color: var(--color-black);
+  font-size: clamp(1em,1.5vw , 5em);
+}
+
+.absolute_container{
+  position: relative;
+ /* margin-top: 8%;*/
+ padding-top: 2%;
+}
+
+.text_absolute{
+  position: absolute;
+  top:20%;
+  left:15%;
+  opacity: 0;
+  
+}
+
+
+
+.flower_image{
+  aspect-ratio: 2/1;
+  width: 0%;
+  height:100vh;
+  margin-left: auto;
+  margin-right: auto;
+  display:  block;
+  /*opacity: 0.8;*/
+ 
+}
+
+.button{
+  padding:5%;
+  background-color:var(--color-green-shade);
+  border-color: var(--color-green-shade);
+  font-size: clamp(1em,1.5vw , 5em);
+  cursor: pointer;
+  color:white;
+  border-radius: 20px;
+  border: none;
+}
+
+.button:hover{
+  color:white;
+  background-color:var(--color-black);
+  
+  
+}
+button a {
+  text-decoration: none;
+  color:white;
+ 
+}
+
+.form{
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+ /* text-align: center;*/
+  width: 40%;
+ 
+}
+
+input[type=text], input[type=number] , input[type=password] ,select {
+  width: 99%;
+  padding: 12px 20px;
+  margin: 2px 0;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+
+
+ input[type=submit]{
+  background-color:var(--color-green);
+  padding: 5px 20px;
+  color: white;
+  font-size: 16px;
+  margin-bottom: 4%;
+  border: none;
+
+}
+
+input[type=submit]:hover{
+  background-color:black;
+  cursor:pointer;
+ }
+
+
+@media  screen and (max-width:750px) {
+  .flower_image{
+      width:0%;
+      aspect-ratio: 1/1;
+      object-fit: contain;
+  }
+
+  .absolute_container{
+     margin-top: 15px;
+     padding-top: 8%;
+
+  }
+
+  
+  .logo{
+      display: flex;
+      
+  }
+  .nav-links{
+      position:absolute;             
+      right:0px;                       /*to extreme right */
+      height:92vh;
+      top:8vh;
+      background-color:var(--color-green);
+      display:flex;          
+      flex-direction: column;           /*downward direction*/
+      align-items:center;
+      width:50%;                        /*appears on half of page*/
+     transform:translate(100%);        /*the menu bar goes in an out */
+      transition:transform 0.6s ease-in ;       /*time needed for to make menu bar move in an out*/
+    }
+    
+
+    .nav-links li{
+      opacity:0;                     /*for giving a sliding look when appearing */
+
+    }
+
+    /*menu icon */
+.menu-icon{
+display:block;
+cursor: pointer;
+}
+
+
+/*to make sliding menu bar active */
+.nav-active{
+transform:translate(0%);
+}
+
+}
+
+
